@@ -93,7 +93,7 @@ namespace _2._3_new
         {
             if (textbox != null)
             {
-                textbox.Foreground = Brushes.Red;
+                textbox.Foreground = Brushes.Green;
             }
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)

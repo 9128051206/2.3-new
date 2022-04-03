@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 
 namespace _2._3_new
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    
+   
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -29,8 +29,8 @@ namespace _2._3_new
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string fontName = ((sender as ComboBox).SelectedItem as TextBlock).Text;
-            if (textbox != null) 
+            string fontName = ((sender as ComboBox).SelectedItem as string);
+            if (textbox != null)
             {
                 textbox.FontFamily = new FontFamily(fontName);
             }
@@ -40,7 +40,7 @@ namespace _2._3_new
         {
             if (textbox != null)
             {
-                double fontSize=Convert.ToDouble(((sender as ComboBox).SelectedItem as TextBlock).Text);
+                double fontSize = Convert.ToDouble(((sender as ComboBox).SelectedItem as string));
                 textbox.FontSize=fontSize;
             }
         }
@@ -86,16 +86,17 @@ namespace _2._3_new
             if (textbox != null)
             {
                 textbox.Foreground = Brushes.Black;
-            }            
+            }
         }
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
             if (textbox != null)
             {
-                textbox.Foreground = Brushes.Green;
+                textbox.Foreground = Brushes.Red;
             }
         }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -120,6 +121,10 @@ namespace _2._3_new
         {
             Application.Current.Shutdown();
         }
-    }
 
+        private void ExitExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+    }
 }
